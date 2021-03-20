@@ -10,8 +10,7 @@ body {
 
 a {
     text-decoration: none;
-    color: <?php echo "#". $Auswahl;
-    ?>;
+    color: #0a84ff;
 }
 
 nav {
@@ -25,7 +24,7 @@ nav {
     margin-top: 0em;
     top: 0em;
     z-index: 100000;
-    border-bottom: 1px #FFFFFF solid;
+    border-bottom: 1px #0a84ff solid;
 }
 
 nav .navbutton {
@@ -57,12 +56,12 @@ nav .title {
     text-align: left;
     font-size: 2.35em;
     margin-top: 0em;
-    color: #FFFFFF;
+    color: #0a84ff;
 }
 
 #sidebar a:hover:not(#close) {
     background-color: #2A2C2B;
-    border-bottom: 1px #FFFFFF solid;
+    border-bottom: 1px #0a84ff solid;
 }
 
 .Anmeldebereich {
@@ -90,12 +89,12 @@ nav .title {
     text-align: center;
     font-size: 2em;
     margin-top: 0.2em;
-    color: #FFFFFF;
+    color: #0a84ff;
     margin-left: 1em;
 }
 
 #close:hover {
-    color: #FFFFFF;
+    color: #0a84ff;
 }
 
 #Main {
@@ -105,7 +104,7 @@ nav .title {
 }
 
 #Heute {
-    border: 0.5em solid #FFFFFF;
+    border: 0.5em solid #0a84ff;
 }
 
 .borderding {
@@ -164,7 +163,7 @@ nav .title {
     padding: 2em;
 
     background-color: #2A2C2B;
-    border-top: solid 0.5em #FFFFFF;
+    border-top: solid 0.5em #0a84ff;
     display: none;
     font-size: 17px;
 }
@@ -182,7 +181,7 @@ nav .title {
     position: absolute;
 
     color: #000000;
-    background-color: #FFFFFF;
+    background-color: #0a84ff;
 }
 
 @media (max-width: 1665px) {
@@ -196,8 +195,6 @@ nav .title {
 
     #sidebar a {
         display: inline-block;
-        color: <?php echo "#". $Auswahl;
-        ?>;
         width: 7.5em;
     }
 
@@ -206,7 +203,6 @@ nav .title {
         display: none;
 
         background-color: black;
-        color: #FFFFFF;
         height: 100%;
         width: 20em;
         text-align: center;
