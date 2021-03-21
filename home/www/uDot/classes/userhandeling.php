@@ -1,4 +1,4 @@
-<?php 
+<?php //test
     class userhandle {
 
         private $sql;
@@ -53,6 +53,10 @@
 
         public function getjson(){
             return $this->jsondata;
+        }
+
+        public function getcolor(){
+            return $this->jsondata[0][0]["akzent"];
         }
     }
 
