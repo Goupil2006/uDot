@@ -36,6 +36,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
     // wenn größe geendert wird wird die Function aufgerufen
@@ -46,88 +48,7 @@
         }
     }
     </script>
-    <?php 
-        // style wird hinzugefügt
-        include "../../css/style.php";
-    ?>
     <title>Schülerapp</title>
-
-    <style>
-    #form1 {
-        position: fixed;
-        width: 50%;
-        left: 25%;
-        height: 60%;
-        top: 25%;
-        border: 1px solid #000000;
-        border-radius: 10px;
-        padding: 1em;
-        z-index: 99999;
-        background-color: #FFFFFF;
-    }
-
-    .nice {
-        position: absolute;
-        top: 1em;
-        left: 1em;
-    }
-
-
-    @media (max-width: 1665px) {
-        #form1 {
-            position: fixed;
-            width: 80%;
-            left: 10%;
-            right: 10%;
-            height: 49%;
-            top: 10%;
-            border: 1px solid #000000;
-            border-radius: 10px;
-            padding: 10px;
-        }
-    }
-
-    #Main {
-        margin-left: -10em;
-    }
-
-    #addthing {
-        position: absolute;
-        top: 5em;
-        right: 1em;
-        background: url('../../icons/Plus.png');
-    }
-
-    .row {
-        position: relative;
-        color: black;
-        height: 10em;
-        background-color: #FFFFFF;
-        border-radius: 1em;
-        margin-bottom: 2em;
-    }
-
-    .row h1 {
-        border-radius: 0.4em 0.4em 0em 0em;
-        height: 1.2em;
-        background-color: #00FF00;
-        border-bottom: 1px solid black;
-    }
-
-    .row p {
-        margin-top: 0em;
-    }
-
-    .btn2 {
-        position: absolute;
-        top: 0.1em;
-        right: 1em;
-        width: 7em;
-    }
-    .hidden {
-        display: none;
-    }
-    </style>
 </head>
 
 <body onresize="myFunction()" id="bodyid">
@@ -248,6 +169,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
+
+    <?php 
+        include "../../inc/js/color.php";
+    ?>
 </body>
 
 </html>

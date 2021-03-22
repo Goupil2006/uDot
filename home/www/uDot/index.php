@@ -12,7 +12,6 @@
         $jsondata = $user->getjson();
     }
     $stundenplan = $jsondata[5][0];
-    $color = $user->getcolor();
 ?>
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
