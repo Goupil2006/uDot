@@ -73,22 +73,22 @@
                     <input class="hidden" type="input" name="welches" value="` + i + `">
                     <div class="col-md-4">
                         <label for="inputAddress" class="form-label">Titel:</label>
-                        <input type="text" name="title" class="form-control" id="inputitel" placeholder="Mathe Hausaufgabe">
+                        <input type="text" name="title" class="form-control" id="inputitel" placeholder="Mathe Hausaufgabe" value="` + document.getElementsByClassName("title2")[parseInt(i)].innerText + `">
                     </div>
 
                     <div class="col-md-4">
                         <label for="inputFach4" class="form-label">Fach:</label>
-                        <input type="text" name="Fach" class="form-control" id="inputFach4" placeholder="Mathematik">
+                        <input type="text" name="Fach" class="form-control" id="inputFach4" placeholder="Mathematik" value="` + document.getElementsByClassName("Fach")[parseInt(i)].innerText + `">
                     </div>
 
                     <div class="col-md-4">
                         <label for="inputPassword4" class="form-label">Datum:</label>
-                        <input type="date" name="Datum"  class="form-control" id="inputDatum4">
+                        <input type="date" name="Datum"  class="form-control" id="inputDatum4" value="` + document.getElementsByClassName("Ablaufdatum")[parseInt(i)].innerText + `">
                     </div>
 
                     <div class="col-md-4">
                         <label for="inputBeschreibung" class="form-label">Beschreibung:</label>
-                        <textarea class="form-control" name="Beschreibung" placeholder="Beschreibung:" id="floatingTextarea2" style="height: 100px">Buch Seite 4, Ausgabe 3</textarea>
+                        <textarea class="form-control" name="Beschreibung" placeholder="Beschreibung:" id="floatingTextarea2" style="height: 100px">` + document.getElementsByClassName("Beschreibung")[parseInt(i)].innerText + `</textarea>
                     </div>
 
                     <div class="form-check">

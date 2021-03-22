@@ -63,7 +63,7 @@
                 echo '<div class="container"><h1>' . $Temp[$i]["Ablaufdatum"] . '</h1><hr>';
             }    
 
-            echo '<div class="row"> <h1 class="title2">' . $Temp[$i]["title"] . '</h1><div><b>Ablaufdatum:&nbsp</b>' . $Temp[$i]["Ablaufdatum"] . '</div><div><b>Fach:&nbsp</b>' . $Temp[$i]["Fach"] . '</div><div><b>Bechreibung:&nbsp</b> ' . $Temp[$i]["Beschreibung"] . '</div><form action="Hausaufgaben.php" method="post"><input type="input" name="welches" class="hidden" value="' . $i . '"><input type="submit" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' . $i . ')" class="btn2 btn btn-primary">Bearbeiten</button></div>';
+            echo '<div class="row"> <h1 class="title2">' . $Temp[$i]["title"] . '</h1><div><b>Ablaufdatum:&nbsp</b><div class="Ablaufdatum">' . $Temp[$i]["Ablaufdatum"] . '</div></div><div><b>Fach:&nbsp</b><div class="Fach">' . $Temp[$i]["Fach"] . '</div></div><div><b>Bechreibung:&nbsp</b><div class="Beschreibung">' . $Temp[$i]["Beschreibung"] . '</div></div><form action="Hausaufgaben.php" method="post"><input type="input" name="welches" class="hidden" value="' . $i . '"><input type="submit" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' . $i . ')" class="btn2 btn btn-primary">Bearbeiten</button></div>';
     
         }
 
