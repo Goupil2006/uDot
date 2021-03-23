@@ -120,7 +120,7 @@
 
     function addthing() {
         var object = document.createElement("div");
-        object.setAttribute("class", "abfrage");
+        object.setAttribute("id", "abfrage");
         object.innerHTML = `
                 <form id="form1" method="post" action="Hausaufgaben.php" class="row g-3"> 
                     <div class="col-md-4">
@@ -140,7 +140,7 @@
 
                     <div class="col-md-4">
                         <label for="inputBeschreibung" class="form-label">Beschreibung:</label>
-                        <textarea class="form-control" name="Beschreibung" placeholder="Beschreibung:" id="floatingTextarea2" style="height: 100px">Buch Seite 4, Ausgabe 3</textarea>
+                        <textarea class="form-control" name="Beschreibung" placeholder="Beschreibung:" id="floatingTextarea2" style="height: 100px"></textarea>
                     </div>
 
                     <div class="form-check">
@@ -159,10 +159,17 @@
                     <div class="col-10">
                         <button type="submit" name="submit" class="btn btn-primary">Speichern</button>
                     </div>
+                    <div class="col-10">
+                        <a id="abbrechen2" class="btn btn-primary">Abbrechen</a>
+                    </div
                 </form>
             
             `;
-        document.getElementById("bodyid").appendChild(object);
+        document.getElementById("bodyid").insertBefore(object, document.getElementById("bodyid").firstChild);
+        document.getElementById("abbrechen2").addEventListener("click", () => {
+            document.getElementById("abfrage").remove();
+        });
+
     }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
