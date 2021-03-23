@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="col-10">
-                        <button type="submit" name="submit2" class="btn btn-primary">Sign in</button>
+                        <button type="submit" name="submit2" class="btn btn-primary">Speichern</button>
                     </div>
                     <div class="col-10">
                         <a id="abbrechen" class="btn btn-primary">Abbrechen</a>
@@ -114,7 +114,7 @@
             `;
         document.getElementById("bodyid").insertBefore(object, document.getElementById("bodyid").firstChild);
         document.getElementById("abbrechen").addEventListener("click", () => {
-            document.getElementById("abbrechen").remove();
+            document.getElementById("abfrage").remove();
         });
     }
 
@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="col-10">
-                        <button type="submit" name="submit" class="btn btn-primary">Sign in</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             
