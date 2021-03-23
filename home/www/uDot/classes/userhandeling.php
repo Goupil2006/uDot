@@ -58,6 +58,12 @@
         public function getcolor(){
             return $this->jsondata[0][0]["akzent"];
         }
+
+        public function covertdate($datum){
+            $Temp = explode("-",$datum);
+            $Temp = $Temp[2] . "." . $Temp[1] . "." . $Temp[0];
+            return $Temp;
+        }
     }
 
 ?>

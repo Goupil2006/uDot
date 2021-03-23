@@ -61,14 +61,16 @@
 
             if(!isset($Temp[$i - 1]) || $Temp[$i]["Ablaufdatum"] != $Temp[$i - 1]["Ablaufdatum"]){
                 echo '</div>';
-                echo '<div class="container"><h1>' . $Temp[$i]["Ablaufdatum"] . '</h1><hr>';
+                echo '<div class="container"><h1>';
+                echo $this->covertdate($Temp[$i]["Ablaufdatum"]);
+                echo '</h1><hr>';
             }    
 
             echo '<div class="row"> 
             <h1 class="title2">'
             . $Temp[$i]["title"] . 
             '</h1><div><b>Ablaufdatum:&nbsp</b><div class="Ablaufdatum">' 
-            . $Temp[$i]["Ablaufdatum"] . 
+            .  $this->covertdate($Temp[$i]["Ablaufdatum"]). 
             '</div></div><div><b>Fach:&nbsp</b><div class="Fach">' 
             . $Temp[$i]["Fach"] . 
             '</div></div><div><b>Bechreibung:&nbsp</b><div class="Beschreibung">' 
