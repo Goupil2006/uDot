@@ -228,3 +228,6 @@ nav .title {
     margin-bottom: 50%;
 }
 
+.blur {
+    -webkit-filter: blur(5px);  -moz-filter: blur(5px);  -o-filter: blur(5px);  -ms-filter: blur(5px);
+}

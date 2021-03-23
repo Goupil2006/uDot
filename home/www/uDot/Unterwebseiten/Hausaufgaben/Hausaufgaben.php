@@ -65,6 +65,8 @@
     <!--Bootstrap wird eingebunden-->
     <script>
     function bearbeiten(i) {
+        document.getElementsByTagName("nav")[0].setAttribute("class", "blur");
+        document.getElementById("main").setAttribute("class", "blur");
         var object = document.createElement("div");
         object.setAttribute("id", "abfrage");
         object.innerHTML = `
@@ -115,10 +117,15 @@
         document.getElementById("bodyid").insertBefore(object, document.getElementById("bodyid").firstChild);
         document.getElementById("abbrechen").addEventListener("click", () => {
             document.getElementById("abfrage").remove();
+            document.getElementsByTagName("nav")[0].removeAttribute("class");
+            document.getElementById("main").removeAttribute("class");
+        
         });
     }
 
     function addthing() {
+        document.getElementsByTagName("nav")[0].setAttribute("class", "blur");
+        document.getElementById("main").setAttribute("class", "blur");
         var object = document.createElement("div");
         object.setAttribute("id", "abfrage");
         object.innerHTML = `
@@ -168,6 +175,8 @@
         document.getElementById("bodyid").insertBefore(object, document.getElementById("bodyid").firstChild);
         document.getElementById("abbrechen2").addEventListener("click", () => {
             document.getElementById("abfrage").remove();
+            document.getElementsByTagName("nav")[0].removeAttribute("class");
+            document.getElementById("main").removeAttribute("class");
         });
 
     }
