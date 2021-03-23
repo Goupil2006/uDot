@@ -59,7 +59,6 @@
 
     <button type="button" onclick="addthing()" id="addthing" class="btn btn-primary"><img src="../../icons/Plus.png"
         style="height: 2em; width: 2em;"></button>
-
     <?php
         $user->printha();
     ?>

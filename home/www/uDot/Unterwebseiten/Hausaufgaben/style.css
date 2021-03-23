@@ -33,12 +33,6 @@
 }
 
 
-
-
-#Main {
-    margin-left: -10em;
-}
-
 #addthing {
     position: absolute;
     top: 5em;
@@ -56,7 +50,7 @@
 }
 
 .row h1 {
-    border-radius: 0.4em 0.4em 0em 0em;
+    border-radius: 0.3em 0.3em 0em 0em;
     height: 1.2em;
     background-color: #00FF00;
     border-bottom: 1px solid black;
@@ -82,4 +76,8 @@
 
 b {
     float: left;
+}
+
+.Lesezeichenimg {
+    width: 2em;
 }
