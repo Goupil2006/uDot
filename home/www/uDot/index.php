@@ -32,6 +32,7 @@
         // wenn seite größer als 1665 ist wird die navbar angezeigt
         if (window.innerWidth > 1665) {
             document.getElementById("sidebar").style.display = "block";
+            document.getElementById("sidebar").style.display = "Flex";
         }
     }
     </script>
@@ -77,7 +78,7 @@
     // wenn mann auf button auf drückt
     function sidebaropen() {
         // navbar wird angezeigt
-        document.getElementById("sidebar").style.display = "block"
+        document.getElementById("sidebar").style.display = "Flex"
     }
 
     function sidebarclose() {
@@ -86,7 +87,7 @@
     }
     </script>
     <!--Main Bereich-->
-    <div id="Main" style="display: flex;">
+    <div id="Main" >
         <!--Stundenplan Der Woche-->
         <?php
 
