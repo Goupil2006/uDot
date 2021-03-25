@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Unterwebseiten/Hausaufgaben/style.css">
     <script type="text/javascript">
     // wenn größe geendert wird wird die Function aufgerufen
     function myFunction() {
@@ -42,27 +43,35 @@
     <nav id="navbar">
         <a href="#" class="navbutton" onclick="sidebaropen()">&#9776;</a>
         <a href="#" class="title">Schülerapp</a>
-        <div id="sidebar">
-            <a href="#" id="close" onclick="sidebarclose()">&#10006;</a>
-            <a href="#">
-                <img src="icons/paln-white.png" style="width:25px; height: 25px; color:red; margin-right: 5px;">
-                Plan
-            </a>
-            <a href="#"><img src="icons/Arbeiten-white.png"
-                    style="width:25px; height: 25px; color:red; margin-right: 5px;">Arbeiten</a>
-            <a href="Unterwebseiten/Hausaufgaben/Hausaufgaben.php"><img src="icons/Arbeiten-white.png"
-                    style="width:25px; height: 25px; color:red; margin-right: 5px;">Hausaufgaben</a>
-            <a href="Unterwebseiten/Noten/Noten.php"><img src="icons/note-white.png"
-                    style="width:28px; height: 28px; color:red; margin-right: 5px;">Noten</a>
-            <a href="Unterwebseiten/Einstellungen/Einstellungen.php"><img src="icons/settings-white.png"
-                    style="width:25px; height: 25px; margin-right: 5px;">Einstellungen</a>
-            <!--<a href="Unterwebseiten/Lehrer/Lehrer.php"><img src="icons/Lehrer-nav-bar_white.png" style="width:25px; height: 25px; color:red; margin-right: 5px;">Lehrer</a>-->
-        </div>
-        <div class="Anmeldebereich">
-            <a style="font-size: 1em;" href="Unterwebseiten/Anmeldung/Anmeldung.php">
-                <img style="margin-right: 5px; margin-top: 0.1em" src="icons/ICON_ohne_HUT_white.png">
-            </a>
-        </div>
+        <?php 
+        if(isset($_SESSION["username"])){
+            echo '
+                <div id="sidebar">
+                    <a href="#" id="close" onclick="sidebarclose()">&#10006;</a>
+                    <a href="#">
+                        <img src="icons/paln-white.png" style="width:25px; height: 25px; color:red; margin-right: 5px;">
+                        Plan
+                    </a>
+                    <a href="#"><img src="icons/Arbeiten-white.png"
+                            style="width:25px; height: 25px; color:red; margin-right: 5px;">Arbeiten</a>
+                    <a href="Unterwebseiten/Hausaufgaben/Hausaufgaben.php"><img src="icons/Arbeiten-white.png"
+                            style="width:25px; height: 25px; color:red; margin-right: 5px;">Hausaufgaben</a>
+                    <a href="Unterwebseiten/Noten/Noten.php"><img src="icons/note-white.png"
+                            style="width:28px; height: 28px; color:red; margin-right: 5px;">Noten</a>
+                    <a href="Unterwebseiten/Einstellungen/Einstellungen.php"><img src="icons/settings-white.png"
+                            style="width:25px; height: 25px; margin-right: 5px;">Einstellungen</a>
+                    <!--<a href="Unterwebseiten/Lehrer/Lehrer.php"><img src="icons/Lehrer-nav-bar_white.png" style="width:25px; height: 25px; color:red; margin-right: 5px;">Lehrer</a>-->
+                </div>';
+        }else {
+            echo '
+                <div class="Anmeldebereich">
+                    <a style="font-size: 1em;" href="Unterwebseiten/Anmeldung/Anmeldung.php">
+                        <img style="margin-right: 5px; margin-top: 0.1em" src="icons/ICON_ohne_HUT_white.png">
+                    </a>
+                </div
+            ';
+        }
+        ?>
     </nav>
     <script type="text/javascript">
     // wenn mann auf button auf drückt
@@ -77,17 +86,127 @@
     }
     </script>
     <!--Main Bereich-->
-    <div id="Main">
+    <div id="Main" style="display: flex;">
         <!--Stundenplan Der Woche-->
         <?php
 
             // wenn nutzer angemeldet ist
             if(isset($_SESSION["username"])){
+
+                echo "<div class='indexflexeins'>";
                 // tabelle mit stundenplan wird eingefügt
                 echo $user->gettable();
+
+                echo "</div>";
+
+                echo "<div class='indexflexzwei'>";
+                    echo '
+                        <h1>To du lsite</h1>
+                        <div class="todulistobj">ein objekt</div>
+                        <div class="todulistobj">ein objekt</div>
+                        <div class="todulistobj">ein objekt</div>
+                    ';
+                echo "</div>";
+
+                echo "</div>";
+
+                function compareByTimeStamp($time1, $time2) 
+                    { 
+                        if (strtotime($time1["Ablaufdatum"]) < strtotime($time2["Ablaufdatum"])) 
+                            return 1;
+                        else if (strtotime($time1["Ablaufdatum"]) > strtotime($time2["Ablaufdatum"]))  
+                            return -1;
+                        else
+                            return 0;
+                    } 
+                    
+                    // Input Array 
+                    $arr = array();
+                    for($i = 0; $i < count($jsondata[1]) + 1; $i++){ 
+                        if(isset($jsondata[1][$i])){
+                            $arr[$i] = $jsondata[1][$i];
+                        }
+                    }
+
+                    // sort array with given user-defined function 
+                    usort($arr, "compareByTimeStamp"); 
+
+                    /*$Temptrue = true;
+                    $Tempnum = 0;
+                    $Temp = array();
+
+                    for($i = 0; $i < count($this->jsondata[1]); $i++){
+                        $Temptrue = true;
+                        $Tempnum = 0;
+                        while($Temptrue && $Tempnum < count($this->jsondata[1])){
+                            if(strtotime($arr[$i]) == strtotime($this->jsondata[1][$Tempnum]["Ablaufdatum"])){
+                                array_push($Temp, $this->jsondata[1][$Tempnum]);
+                                unset($this->jsondata[1][$Tempnum]);
+                                $Temptrue = false;
+                                $Tempnum++;
+                            }else {
+                                $Tempnum++;
+                            }
+                        }
+                    }*/
+
+                    $Heute = time();
+
+                    for($i = 0; $i < count($arr); $i++){
+                        if(strtotime($arr[$i]["Ablaufdatum"]) < $Heute - 24*60*60){
+                            unset($arr[$i]);
+                            /*unset($Temp[$i]);*/
+                        }
+                    }
+
+                    $Temp = $arr;
+                    $Temp = array_reverse($Temp);
+
+                    $user->resetjson($Temp);
+
+                    for($i = 0; $i < count($arr); $i++) {
+
+                        if(!isset($Temp[$i - 1]) || $Temp[$i]["Ablaufdatum"] != $Temp[$i - 1]["Ablaufdatum"]){
+                            if($i > 0){
+                                break;
+                            }
+                            echo '</div>';
+                            echo '<div class="container"><h1>';
+                            echo $user->covertdate($Temp[$i]["Ablaufdatum"]);
+                            echo '</h1><hr>';
+                        }    
+
+                        echo '<div class="row"> 
+                        <h1 class="title2">'
+                        . $Temp[$i]["title"] . 
+                        '</h1><div><b>Ablaufdatum:&nbsp</b><div class="Ablaufdatum">' 
+                        .  $user->covertdate($Temp[$i]["Ablaufdatum"]). 
+                        '</div></div><div><b>Fach:&nbsp</b><div class="Fach">' 
+                        . $Temp[$i]["Fach"] . 
+                        '</div></div><div><b>Bechreibung:&nbsp</b><div class="Beschreibung">' 
+                        . $Temp[$i]["Beschreibung"] . 
+                        '</div></div><form action="Hausaufgaben.php" method="post"><input type="input" name="welches" class="hidden" value="' 
+                        . $i . 
+                        '"><input type="submit" class="Löschenlol btn btn-primary" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' 
+                        . $i . 
+                        ')" class="btn2 btn btn-primary">Bearbeiten</button><div><img class="Lesezeichenimg" src="icons/Lesezeichen';
+
+                        if(strtotime($Temp[$i]["Ablaufdatum"]) < $Heute + 24*60*60 ) {
+                            echo 'rot';
+                        }elseif(strtotime($Temp[$i]["Ablaufdatum"]) < $Heute + 24*60*60*2 ){
+                            echo 'orange';
+                        }else{
+                            echo 'grün';
+                        }
+                        
+                        echo '.png"></div></div>';
+                
+                    } 
+
             }else {
                 // sonst wird die startseite angezeigt
                 include "inc/home.php";
+                echo "</div>";
             }
         ?>
         <!--Cookieabfrage-->
@@ -101,7 +220,6 @@
         </div>
 
         <script type="text/javascript" src="inc/js/cookieabfrage.js"></script>
-    </div>
     <!--Bootstrap wird eingebunden-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">

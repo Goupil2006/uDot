@@ -2,6 +2,7 @@
     class userhandle {
 
         private $sql;
+        private $where;
         private $userdata;
         private $con;
         private $stundenplan;
@@ -14,6 +15,7 @@
             $this->sql = mysqli_query($this->con, "SELECT * FROM nutzer WHERE name LIKE '$this->username'");
             $this->userdata = mysqli_fetch_assoc($this->sql);
             $this->username = $this->userdata["json"];
+            $this->where = $where;
             if($where == 1){
                 $this->jsondata = json_decode(file_get_contents("nutzer/$this->username"), true);
             } else {
@@ -24,8 +26,13 @@
 
         public function resetjson($hausaufgaben){
             $this->jsondata[1] = $hausaufgaben;
-            file_put_contents("../../nutzer/$this->username", json_encode($this->jsondata));
-            $this->jsondata = json_decode(file_get_contents("../../nutzer/$this->username"), true);
+            if($this->where == 1){
+                file_put_contents("nutzer/$this->username", json_encode($this->jsondata));
+                $this->jsondata = json_decode(file_get_contents("nutzer/$this->username"), true);
+            }else {
+                file_put_contents("../../nutzer/$this->username", json_encode($this->jsondata));
+                $this->jsondata = json_decode(file_get_contents("../../nutzer/$this->username"), true);
+            }
         }
 
         public function gettable(){

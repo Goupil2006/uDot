@@ -77,7 +77,7 @@
             . $Temp[$i]["Beschreibung"] . 
             '</div></div><form action="Hausaufgaben.php" method="post"><input type="input" name="welches" class="hidden" value="' 
             . $i . 
-            '"><input type="submit" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' 
+            '"><input type="submit" class="Löschenlol btn btn-primary" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' 
             . $i . 
             ')" class="btn2 btn btn-primary">Bearbeiten</button><div><img class="Lesezeichenimg" src="../../icons/Lesezeichen';
 

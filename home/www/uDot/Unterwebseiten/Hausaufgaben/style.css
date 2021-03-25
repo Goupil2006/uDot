@@ -79,5 +79,14 @@ b {
 }
 
 .Lesezeichenimg {
+    position: absolute;
+    top: 9.7em;
     width: 2em;
+}
+
+.Löschenlol {
+    position: absolute;
+    top: 0.1em;
+    right: 9em;
+    width: 7em
 }
