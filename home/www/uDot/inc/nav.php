@@ -1,8 +1,8 @@
-<nav>
+<nav id="navbar">
     <a href="#" class="navbutton" onclick="sidebaropen()">&#9776;</a>
     <a href="http://www.gis-informatik.de/~schuelerapp/uDot/index.php" class="title">Schülerapp</a>
     <div id="sidebar">
-        <a href="#" id="close" onclick="sidebarclose()">close &#10006;</a>
+        <a href="#" id="close" onclick="sidebarclose()">&#10006;</a>
         <a href="#"><img src="../../icons/paln-white.png"
                 style="width:25px; height: 25px; color:red; margin-right: 5px;">Plan</a>
         <a href="#"><img src="../../icons/Arbeiten-white.png"
@@ -15,7 +15,9 @@
                 style="width:25px; height: 25px; color:red; margin-right: 5px;">Einstellungen</a>
     </div>
     <div class="Anmeldebereich">
-        <img src="../../img/Anmeldeicon.png">
+        <a style="font-size: 1em;" href="../../Unterwebseiten/Anmeldung/Anmeldung.php">
+            <img style="margin-right: 5px; margin-top: 0.1em" src="../../icons/ICON_ohne_HUT_white.png">
+        </a>
     </div>
 </nav>
 <script type="text/javascript">

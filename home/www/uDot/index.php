@@ -63,6 +63,13 @@
                             style="width:25px; height: 25px; margin-right: 5px;">Einstellungen</a>
                     <!--<a href="Unterwebseiten/Lehrer/Lehrer.php"><img src="icons/Lehrer-nav-bar_white.png" style="width:25px; height: 25px; color:red; margin-right: 5px;">Lehrer</a>-->
                 </div>';
+            echo '
+                <div class="Anmeldebereich">
+                    <a style="font-size: 1em;" href="Unterwebseiten/Anmeldung/Anmeldung.php">
+                        <img style="margin-right: 5px; margin-top: 0.1em" src="icons/ICON_ohne_HUT_white.png">
+                    </a>
+                </div>
+            ';
         }else {
             echo '
                 <div class="Anmeldebereich">
@@ -100,15 +107,17 @@
 
                 echo "</div>";
 
-                echo "<div class='indexflexzwei'>";
+                echo "</div>";
+
+                echo '<div class="thingslol">';
+
+                echo "<div id='Toduu'>";
                     echo '
                         <h1>To du lsite</h1>
                         <div class="todulistobj">ein objekt</div>
                         <div class="todulistobj">ein objekt</div>
                         <div class="todulistobj">ein objekt</div>
                     ';
-                echo "</div>";
-
                 echo "</div>";
 
                 function compareByTimeStamp($time1, $time2) 
@@ -172,7 +181,7 @@
                                 break;
                             }
                             echo '</div>';
-                            echo '<div class="container"><h1>';
+                            echo '<div id="Tagha"><h1>';
                             echo $user->covertdate($Temp[$i]["Ablaufdatum"]);
                             echo '</h1><hr>';
                         }    
@@ -188,9 +197,7 @@
                         . $Temp[$i]["Beschreibung"] . 
                         '</div></div><form action="Hausaufgaben.php" method="post"><input type="input" name="welches" class="hidden" value="' 
                         . $i . 
-                        '"><input type="submit" class="Löschenlol btn btn-primary" name="submit3" value="Löschen"></form><button onclick="bearbeiten(' 
-                        . $i . 
-                        ')" class="btn2 btn btn-primary">Bearbeiten</button><div><img class="Lesezeichenimg" src="icons/Lesezeichen';
+                        '"><div><img class="Lesezeichenimg" src="icons/Lesezeichen';
 
                         if(strtotime($Temp[$i]["Ablaufdatum"]) < $Heute + 24*60*60 ) {
                             echo 'rot';
@@ -203,7 +210,7 @@
                         echo '.png"></div></div>';
                 
                     } 
-
+                    echo '</div>';
             }else {
                 // sonst wird die startseite angezeigt
                 include "inc/home.php";

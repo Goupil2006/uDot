@@ -1,6 +1,6 @@
 <?php 
     $output = "";
-    $output .= '<a href="Unterwebseiten/StundenplanBearbeiten/StundenplanBearbeiten.php" style="position: absolute; top: -3em; right: 5em;" type="button" id="bearbeitenbutton" class="btn btn-primary">Bearbeiten</a>';
+    $output .= '<a href="Unterwebseiten/StundenplanBearbeiten/StundenplanBearbeiten.php" style="position: absolute; top: -3em; right: 2em;" type="button" id="bearbeitenbutton" class="btn btn-primary">Bearbeiten</a>';
 
     function printhour($wahttodo = 1, $Tempstunden, $TempTage, $TempTempstunden, $stundenplan, $output) {
         $output .= "<div class='borderding' ";
