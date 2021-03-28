@@ -11,6 +11,10 @@
     }
     $jsondata = $user->getjson();
 
+    if(isset($_POST["submit"])){
+        
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -56,25 +60,25 @@
             </div>
             <div id="schriftmünd">
                 <div id="schrift" class="form-floating mb-3">
-                    <input type="input" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input name="Proschrift" type="input" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="input">Schriftlich in Prozent (z.B. 40%)</label>
                 </div>
                 <div id="münd" class="form-floating">
-                    <input type="input" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input name="promünd" type="input" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Mündlich in Prozent (z.B. 60%)</label>
                 </div>
             </div>
         </div>
         <div id="formrest2" style="display: none;">
-            <select id="Fach" class="form-select" aria-label="Default select example">
+            <select name="fachauswahl" id="Fach" class="form-select" aria-label="Default select example">
                 <option value="1">Mathe</option>
                 <option value="2">Deutsch</option>
             </select>
-            <select id="schriftt" class="form-select" aria-label="Default select example">
+            <select name="schriftodermünd" id="schriftt" class="form-select" aria-label="Default select example">
                 <option value="1">Schriftlich</option>
                 <option value="2">Mündlich</option>
             </select>
-            <select id="note" class="form-select" aria-label="Default select example">
+            <select name="noteselctor" id="note" class="form-select" aria-label="Default select example">
                 <?php 
                     for($i = 1; $i < 6; $i += 0.1){
                         echo '<option value="' . $i . '">' . $i . '</option>';
