@@ -12,8 +12,17 @@
     $jsondata = $user->getjson();
 
     if(isset($_POST["submit"])){
-        
+        if(isset($_POST["Fachname"])){
+            if(isset($_POST["Proschrift"]) && isset($_POST["promünd"])){
+                $user->addfach($_POST["Fachname"], $_POST["Proschrift"], $_POST["promünd"]);
+            }
+        }elseif(isset($_POST["fachauswahl"])) {
+
+        } 
     }
+
+    echo $user->getjson();
+    echo $user->getFach();
 
 ?>
 
