@@ -6,23 +6,22 @@
     // wird überprüft ob nutzer angemeldet ist
     if(isset($_SESSION["username"])){
         $username = $_SESSION["username"];
-        $user = new userhandle($username, $con, 2);
+        $user = new userhandle($username, 2);
         $jsondata = $user->getjson();
     }
     $jsondata = $user->getjson();
 
     if(isset($_POST["submit"])){
-        if(isset($_POST["Fachname"])){
-            if(isset($_POST["Proschrift"]) && isset($_POST["promünd"])){
+        if($_POST["Fachname"] != ""){
+            if($_POST["Proschrift"] != "" && $_POST["promünd"] != ""){
                 $user->addfach($_POST["Fachname"], $_POST["Proschrift"], $_POST["promünd"]);
             }
-        }elseif(isset($_POST["fachauswahl"])) {
-
+        }elseif($_POST["fachauswahl"] != "") {
+            if($_POST["schriftodermünd"] != "" && $_POST["noteselctor"] != ""){
+                $user->setNote($_POST["fachauswahl"], $_POST["schriftodermünd"], $_POST["noteselctor"]);
+            }
         } 
     }
-
-    echo $user->getjson();
-    echo $user->getFach();
 
 ?>
 
@@ -56,7 +55,7 @@
         style="height: 2em; width: 2em;"></button>
     </div>
 
-    <form id="theform" method="post" action="Noten.php">
+    <form id="theform" method="post" action="Noten.php" style="display: none;">
         <h1 style="color: #000000;">Hallo</h1>
         <select id="what" class="form-select" aria-label="Default select example">
             <option value="1">Fach</option>
@@ -80,8 +79,19 @@
         </div>
         <div id="formrest2" style="display: none;">
             <select name="fachauswahl" id="Fach" class="form-select" aria-label="Default select example">
-                <option value="1">Mathe</option>
-                <option value="2">Deutsch</option>
+                <?php 
+                    for($i = 0; $i < count($user->getFach()); $i++){
+                        echo "<option value='";
+                        $Temp = $user->getFach();
+                        echo $Temp[$i][0];
+                        echo "'>";
+                        $Temp = $user->getFach();
+                        echo $Temp[$i][0];
+                        echo "</option>";
+                    }
+                ?>
+                <option>Mathe</option>
+                <option>Deutsch</option>
             </select>
             <select name="schriftodermünd" id="schriftt" class="form-select" aria-label="Default select example">
                 <option value="1">Schriftlich</option>
@@ -123,7 +133,7 @@
         }
 
         function addthing() {
-            
+            document.getElementById("theform").style.display = "block";
         }
     </script>
 </body>

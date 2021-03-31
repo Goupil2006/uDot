@@ -6,17 +6,18 @@
         private $userdata;
         private $con;
         private $stundenplan;
-        public $username;
-        public $jsondata;
+        private $username;
+        private $jsondata;
 
         public function __construct($name, $where){
             $this->con = new mysqli("127.0.0.1:3307", "schuelerapp", "WsdSuwmnA26!", "schuelerapp");
             $this->username = $name;
-            $this->sql = $this->con->prepare("SELECT * FROM nutzer WHERE name LIKE ?");
+            $this->sql = $this->con->prepare("SELECT json FROM nutzer WHERE name LIKE ?");
             $this->sql->bind_param("s", $this->username);
             $this->sql->execute();
+            $this->sql->bind_result($json);
             $this->userdata = $this->sql->fetch();
-            $this->username .= ".json";
+            $this->username = $json;
             $this->where = $where;
             if($where == 1){
                 $this->jsondata = json_decode(file_get_contents("nutzer/$this->username"), true);
@@ -77,12 +78,25 @@
         }
 
         public function addFach($name, $pros, $prom) {
-            array_push($this->jsondata[2][1], array($name, $pros, $prom));
+            array_push($this->jsondata[2][0], array($name, $pros, $prom));
             $this->resetjson();
         }
 
         public function getFach() {
+            return $this->jsondata[2][0];
+        }
+
+        public function setNote($name, $sm, $note){
+            array_push($this->jsondata[2][1], array($name, $sm, $note));
+            $this->resetjson();
+        }
+
+        public function getNote() {
             return $this->jsondata[2][1];
+        }
+
+        public function sortNote() {
+            $Temp = array();
         }
     }
 
