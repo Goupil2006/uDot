@@ -23,6 +23,8 @@
         } 
     }
 
+    print_r($user->sortNote());
+
 ?>
 
 <!DOCTYPE html>

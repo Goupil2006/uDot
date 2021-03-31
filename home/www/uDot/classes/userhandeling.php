@@ -97,6 +97,18 @@
 
         public function sortNote() {
             $Temp = array();
+            for($i = 0; $i < count($this->jsondata[2][0]); $i++) {
+                array_push($Temp, array("name" => $this->jsondata[2][0][$i][0], "schrift" => array(), "münd" => array()));
+            }
+            for($i = 0; $i < $this->jsondata[2][1]; $i++) {
+                $Tempfach = $this->jsondata[2][1][$i][0];
+                for($x = 0; $x < $this->jsondata[2][0][$x][0]; $x++) {
+                    if($Tempfach == $this->jsondata[2][0][$x][0]){
+
+                    }
+                }
+            }
+            return $Temp;
         }
     }
 
