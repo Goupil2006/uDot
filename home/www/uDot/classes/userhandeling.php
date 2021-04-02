@@ -78,37 +78,25 @@
         }
 
         public function addFach($name, $pros, $prom) {
-            array_push($this->jsondata[2][0], array($name, $pros, $prom));
+            array_push($this->jsondata[2], array("name" => $name, "s" => $pros, "m" => $prom, "schrift" => array(), "münd" => array()));
             $this->resetjson();
         }
 
         public function getFach() {
-            return $this->jsondata[2][0];
+            return $this->jsondata[2];
         }
 
         public function setNote($name, $sm, $note){
-            array_push($this->jsondata[2][1], array($name, $sm, $note));
+            for($i = 0; $i < count($this->jsondata[2]); $i++){
+                if($this->jsondata[2][$i]['name'] == $name){
+                    array_push($this->jsondata[2][$i][$sm], $note);
+                }
+            }
             $this->resetjson();
         }
 
         public function getNote() {
-            return $this->jsondata[2][1];
-        }
-
-        public function sortNote() {
-            $Temp = array();
-            for($i = 0; $i < count($this->jsondata[2][0]); $i++) {
-                array_push($Temp, array("name" => $this->jsondata[2][0][$i][0], "schrift" => array(), "münd" => array()));
-            }
-            for($i = 0; $i < $this->jsondata[2][1]; $i++) {
-                $Tempfach = $this->jsondata[2][1][$i][0];
-                for($x = 0; $x < $this->jsondata[2][0][$x][0]; $x++) {
-                    if($Tempfach == $this->jsondata[2][0][$x][0]){
-
-                    }
-                }
-            }
-            return $Temp;
+            return $this->jsondata[2];
         }
     }
 

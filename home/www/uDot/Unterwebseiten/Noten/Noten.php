@@ -23,7 +23,7 @@
         } 
     }
 
-    print_r($user->sortNote());
+    print_r($user->getNote());
 
 ?>
 
@@ -85,10 +85,10 @@
                     for($i = 0; $i < count($user->getFach()); $i++){
                         echo "<option value='";
                         $Temp = $user->getFach();
-                        echo $Temp[$i][0];
+                        echo $Temp[$i]["name"];
                         echo "'>";
                         $Temp = $user->getFach();
-                        echo $Temp[$i][0];
+                        echo $Temp[$i]["name"];
                         echo "</option>";
                     }
                 ?>
@@ -96,8 +96,8 @@
                 <option>Deutsch</option>
             </select>
             <select name="schriftodermünd" id="schriftt" class="form-select" aria-label="Default select example">
-                <option value="1">Schriftlich</option>
-                <option value="2">Mündlich</option>
+                <option value="schrift">Schriftlich</option>
+                <option value="münd">Mündlich</option>
             </select>
             <select name="noteselctor" id="note" class="form-select" aria-label="Default select example">
                 <?php 
