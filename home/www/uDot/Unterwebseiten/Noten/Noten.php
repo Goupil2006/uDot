@@ -55,6 +55,36 @@
     <div id="Main">
         <button type="button" onclick="addthing()" id="addthing" class="btn btn-primary"><img src="../../icons/Plus.png"
         style="height: 2em; width: 2em;"></button>
+        <table>
+            <?php 
+                $Temp = $user->getFach(); 
+            
+                for($i = 0; $i < count($Temp); $i++){
+
+                    echo "<tr>";
+
+                    echo "<td>";
+                    echo $Temp[$i]["name"];
+                    echo "</td>";
+
+                    for($x = 0; $x < count($Temp[$i]["schrift"]); $x++){
+                        echo "<td>";
+                        echo $Temp[$i]["schrift"][$x];
+                        echo "</>";
+                    }
+
+                    for($x = 0; $x < count($Temp[$i]["münd"]); $x++){
+                        echo "<td>";
+                        echo $Temp[$i]["münd"][$x];
+                        echo "</td>";
+                    }
+
+                    echo "</tr>";
+
+                }
+            
+            ?>
+        </table>
     </div>
 
     <form id="theform" method="post" action="Noten.php" style="display: none;">
