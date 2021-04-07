@@ -27,7 +27,7 @@
             $this->stundenplan = $this->jsondata[5][0];
         }
 
-        public function resetjson(...$hausaufgaben){
+        public function resetjson($hausaufgaben){
             if(isset($hausaufgaben)){
                 $this->jsondata[1] = $hausaufgaben;
             }
@@ -79,7 +79,7 @@
 
         public function addFach($name, $pros, $prom) {
             array_push($this->jsondata[2], array("name" => $name, "s" => $pros, "m" => $prom, "schrift" => array(), "münd" => array()));
-            $this->resetjson();
+            $this->resetjson(null);
         }
 
         public function getFach() {
@@ -92,7 +92,7 @@
                     array_push($this->jsondata[2][$i][$sm], $note);
                 }
             }
-            $this->resetjson();
+            $this->resetjson(null);
         }
 
         public function getNote() {

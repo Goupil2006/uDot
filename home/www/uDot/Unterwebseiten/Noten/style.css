@@ -1,0 +1,59 @@
+#theform {
+    position: fixed;
+    width: 70%;
+    height: 60%;
+    background: #FFFFFF;
+    margin-left: 15%;
+    padding: 2em;
+    border: 5px solid #FF0000;
+    border-radius: 1em;
+    z-index: 9999;
+}
+#formrest1 {
+    color: #000000;
+    margin-top: 1em;
+}
+#schriftmünd {
+    display: Flex;
+}
+#schrift {
+    width: 50%;
+    margin-right: 2em;
+}
+#münd {
+    width: 50%;
+}
+#formrest2 select {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+
+table {
+    position: absolute;
+    top: 10em;
+    right: 10%;
+    left: 10%;
+    width: 80%;
+}
+
+.schrift {
+    width: 40em;
+    border: solid 5px #FFFFFF;
+}
+
+.münd {
+    width: 40em;
+    border: solid 5px #FFFFFF;
+}
+
+.namefac {
+    width: 40em;
+}
+
+.schrift div, .münd div {
+    display: inline-block;
+    padding: 0.3em;
+    border: solid 1px #FFFFFF;
+}

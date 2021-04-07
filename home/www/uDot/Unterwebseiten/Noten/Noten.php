@@ -63,21 +63,29 @@
 
                     echo "<tr>";
 
-                    echo "<td>";
+                    echo "<td class='namefac'>";
                     echo $Temp[$i]["name"];
                     echo "</td>";
 
+                    echo "<td class='schrift'>";
+
                     for($x = 0; $x < count($Temp[$i]["schrift"]); $x++){
-                        echo "<td>";
+                        echo "<div>";
                         echo $Temp[$i]["schrift"][$x];
-                        echo "</>";
+                        echo "</div>";
                     }
 
+                    echo "</td>";
+
+                    echo "<td class='münd'>";
+
                     for($x = 0; $x < count($Temp[$i]["münd"]); $x++){
-                        echo "<td>";
+                        echo "<div>";
                         echo $Temp[$i]["münd"][$x];
-                        echo "</td>";
+                        echo "</div>";
                     }
+
+                    echo "</td>";
 
                     echo "</tr>";
 
